@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MyHyperDemo</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="set_home">set Home</string>
+    <string name="distance">Distance from Home</string>
+    <string name="calculated_distance">Calculated Distance: %.2f meters</string>
 </resources>

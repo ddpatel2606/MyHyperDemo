@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="item"
+            type="com.dixitpatel.mycoffeevenue.mymodule.domain.model.CountriesModelItem" />
+
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="@dimen/dimen_300dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_6dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="?android:selectableItemBackground"
+        app:cardBackgroundColor="@color/default_text_color_checked"
+        app:cardCornerRadius="@dimen/dimen_12dp"
+        app:cardElevation="@dimen/dimen_0dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/ivCard"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dimen_200dp">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/tvItemImage"
+                android:layout_width="@dimen/dimen_60dp"
+                android:layout_height="@dimen/dimen_60dp"
+                android:layout_marginTop="@dimen/dimen_4dp"
+                android:elevation="3dp"
+                android:gravity="center"
+                android:padding="@dimen/dimen_10dp"
+                android:src="@{item.homeLocation ? @drawable/ic__my_home : @drawable/ic_pin}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic__my_home" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvItemName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/dimen_6dp"
+                android:elevation="3dp"
+                android:fontFamily="@font/poppins_bold"
+                android:gravity="center|bottom"
+                android:lines="1"
+                android:padding="@dimen/dimen_6dp"
+                android:text="@{item.name}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvItemImage" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvItemAddress"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center|bottom"
+                android:padding="@dimen/dimen_4dp"
+                android:text="@{item.capital}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvItemName" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnSetHome"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/set_home"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14sp"
+                app:layout_constraintEnd_toStartOf="@+id/btnCalculateDistance"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvItemAddress" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCalculateDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/distance"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnSetHome"
+                app:layout_constraintTop_toBottomOf="@+id/tvItemAddress" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
+

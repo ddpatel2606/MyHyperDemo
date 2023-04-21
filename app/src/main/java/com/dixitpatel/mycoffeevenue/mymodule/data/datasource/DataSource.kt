@@ -1,41 +1,24 @@
 package com.dixitpatel.mycoffeevenue.mymodule.data.datasource
 
-import com.dixitpatel.mycoffeevenue.mymodule.data.constant.ALLOWED_CHARACTERS
-import java.security.SecureRandom
+import android.content.Context
+import android.location.Location
+import com.dixitpatel.mycoffeevenue.mymodule.domain.model.CountriesModelItem
+import com.dixitpatel.mycoffeevenue.mymodule.presentation.viewutils.readAssetsFile
+import com.google.android.gms.maps.model.LatLng
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
-/**
- *  countWordsFromString
- *  This function will calculate the words from the given string
- *
- */
-fun countWordsFromString(data : String): Int {
-    return if(data.isNotEmpty()) data.trim().split("\\s+".toRegex()).size else 0
+fun getCountries(context: Context): List<CountriesModelItem> {
+    val listType = object : TypeToken<List<CountriesModelItem?>>() {}.type
+    return Gson().fromJson(context.assets.readAssetsFile("countries.json"), listType)
 }
 
-/**
- *  getRandomString
- *  This function will generate the random word from the ALLOWED_CHARACTERS limit
- *
- */
-fun getRandomString(): String {
-    val secureRandom = SecureRandom()
-    val allowedChars = ALLOWED_CHARACTERS.toCharArray()
-    val randomMax = (2..10).random()
-    val sb = StringBuilder()
-    sb.ensureCapacity(randomMax)
-    repeat(randomMax) {
-        sb.append(allowedChars[secureRandom.nextInt(allowedChars.size)])
-    }
-    return sb.toString()
-}
-
-/**
- *  getRandomParagraph
- *  This function will generate the random Paragraph from the getRandomString()
- *
- */
-fun getRandomParagraph(): String {
-    val random = (1..20).random()
-    val words = List(random) { getRandomString() }
-    return words.joinToString(separator = " ")
+fun getDistanceBetweenTwoLocation(startLatLng: LatLng, endLatLng: LatLng): Float {
+    val location1 = Location("")
+    location1.latitude = startLatLng.latitude
+    location1.longitude = startLatLng.longitude
+    val location2 = Location("")
+    location2.latitude = endLatLng.latitude
+    location2.longitude = endLatLng.longitude
+    return location1.distanceTo(location2)
 }

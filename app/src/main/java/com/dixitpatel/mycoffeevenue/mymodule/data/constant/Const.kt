@@ -1,5 +1,7 @@
 package com.dixitpatel.mycoffeevenue.mymodule.data.constant
 
-const val APP_NAME = "My Motorway Demo"
+import com.google.android.gms.maps.model.LatLng
 
-const val ALLOWED_CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
+const val APP_NAME = "My Hyper Demo"
+
+val DEFAULT_LONDON_LOCATION = LatLng(51.499256, -0.119669)

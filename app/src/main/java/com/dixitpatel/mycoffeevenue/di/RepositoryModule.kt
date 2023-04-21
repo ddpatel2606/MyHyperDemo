@@ -1,7 +1,7 @@
 package com.dixitpatel.mycoffeevenue.di
 
-import com.dixitpatel.mycoffeevenue.mymodule.data.repositoryIml.RandomTextRepositoryImpl
-import com.dixitpatel.mycoffeevenue.mymodule.domain.repository.RandomTextRepository
+import com.dixitpatel.mycoffeevenue.mymodule.data.repositoryIml.MyLocationRepositoryImpl
+import com.dixitpatel.mycoffeevenue.mymodule.domain.repository.MyLocationRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -9,7 +9,7 @@ import dagger.hilt.android.components.ViewModelComponent
 
 /**
  *  RepositoryModule
- *  Di will bind the RandomTextRepositoryImpl to RandomTextRepository
+ *  Di will bind the MyLocationRepositoryImpl to MyLocationRepository
  *
  */
 @Module
@@ -17,6 +17,6 @@ import dagger.hilt.android.components.ViewModelComponent
 abstract class RepositoryModule {
 
     @Binds
-    abstract fun bindRandomTextRepository(repository: RandomTextRepositoryImpl): RandomTextRepository
+    abstract fun bindRandomTextRepository(repository: MyLocationRepositoryImpl): MyLocationRepository
 
 }
